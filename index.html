@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="hr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Broj prodanih automobila u S.A.D-u u 2022. godini</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+
+    <link rel="stylesheet" href="style/style.css" />
+  </head>
+  <body>
+    <main>
+      <div class="year-sale-graph">
+        <div class="year-sale-title">
+          <h1>
+            Broj prodanih automobila u <br />S.A.D-u u prvoj polovici 2021. i
+            2022. godini
+          </h1>
+        </div>
+      </div>
+
+      <div class="manufacturer-sale-graphs">
+        <div class="by-model-graph">
+          <div class="model-legend">
+            <h2>Top 10 prodanih modela</h2>
+            <div class="model-legend-items"></div>
+          </div>
+          <div class="by-month-select">
+            <select name="month" id="month">
+              <option value="siječanj">Siječanj</option>
+              <option value="veljača">Veljača</option>
+              <option value="ožujak">Ožujak</option>
+              <option value="travanj">Travanj</option>
+              <option value="svibanj">Svibanj</option>
+              <option value="lipanj">Lipanj</option>
+            </select>
+          </div>
+          <div class="model-stats"></div>
+        </div>
+        <div class="by-manufacturer-graph">
+          <div class="logo1"><img src="#" alt="Logo"></div>
+          <div class="logo2"><img src="#" alt="Logo"></div>
+          <div class="manufacturer-stats"></div>
+          <div class="by-manufacturer-select-1">
+            <div class="manufacturer-color"></div>
+            <select name="manufacturer" id="manufacturer"></select>
+          </div>
+          <div class="by-manufacturer-select-2">
+            <div class="manufacturer-color"></div>
+            <select name="manufacturer" id="manufacturer"></select>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="js/data.js"></script>
+    <script src="js/index.js"></script>
+  </body>
+</html>
