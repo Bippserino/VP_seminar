@@ -87,6 +87,7 @@ const calculateTotalSoldByMonth = (data) => {
 };
 
 const getManufacturersList = () => {
+  // Returns array of arrays of manufacturers for years 2021 and 2022 as  [manufacturers2021, manufacturers2022]
   let manufacturers2021 = {};
   let manufacturers2022 = {};
 

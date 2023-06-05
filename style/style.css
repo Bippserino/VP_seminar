@@ -149,3 +149,7 @@ main {
 .logo1 img, .logo2 img {
     width: 40px;
 }
+
+.bar {
+    cursor: pointer;
+}
