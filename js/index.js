@@ -75,6 +75,7 @@ var manufacturerSvg = d3
   );
 
 const calculateTotalSoldByMonth = (data) => {
+  // Returns total number of sold cars for specific dataset as array
   let yearTotal = [];
   data.forEach((element) => {
     let total = 0;
@@ -115,6 +116,7 @@ const getManufacturersList = () => {
 };
 
 const addToManufacturerSelect = (list) => {
+  // Adds list of manufacturers to dropdown menus
   let selectHTML = "";
   list.forEach((item) => {
     selectHTML += `<option value="${item}">${item}</option>`;
@@ -124,6 +126,7 @@ const addToManufacturerSelect = (list) => {
 };
 
 const drawTotalChart = (data) => {
+  // Draws linechart with 2 lines which represent total cars sold in 2021 and 2021
   let dataset = [];
   for (let i = 0; i < data.length; i++) {
     dataset.push({ month: months[i], data: data[i] });
@@ -202,6 +205,7 @@ const drawTotalChart = (data) => {
 };
 
 const drawModelChart = (month) => {
+  // Draws top 10 sold models for selected month
   modelSvg.selectAll("*").remove();
   var outerRadius = modelWidth / 5;
   var innerRadius = 0;
@@ -265,6 +269,7 @@ const drawModelChart = (month) => {
 };
 
 const onModelMouseOver = (e) => {
+  // Event handler which shows name of the model and number of sold cars when howering pie chart section
   let modelStats = document.querySelector(".model-stats");
   var rect = byModelGraph.getBoundingClientRect();
   var x = Math.abs(e.clientX - rect.left);
@@ -278,11 +283,13 @@ const onModelMouseOver = (e) => {
 };
 
 const onModelLeave = (e) => {
+  // Event handler which hides the name of the model and number of sold cars when mouse leaves pie chart section
   let modelStats = document.querySelector(".model-stats");
   modelStats.style.visibility = "hidden";
 };
 
 const drawManufacturerChart = (data1, data2) => {
+  // Draws bar chart with 2 columns which represent number of sold cars for each month
   manufacturerSvg.selectAll("*").remove();
 
   const d1 = { months: Object.keys(data1), values: Object.values(data1) };
@@ -412,6 +419,7 @@ const drawManufacturerChart = (data1, data2) => {
 };
 
 const onManufacturerMouseOver = (e) => {
+  // Event handler which shows name of the manufacturer and number of sold cars when howering bar chart section
   let modelStats = document.querySelector(".manufacturer-stats");
   var rect = byManufacturerGraph.getBoundingClientRect();
   var x = Math.abs(e.clientX - rect.left);
@@ -425,11 +433,13 @@ const onManufacturerMouseOver = (e) => {
 };
 
 const onManufacturerLeave = (e) => {
+  // Event handler which hides name of the manufacturer and number of sold cars when leaving bar chart section with mouse
   let modelStats = document.querySelector(".manufacturer-stats");
   modelStats.style.visibility = "hidden";
 };
 
 const optionSelector = () => {
+  // Handles situations when the same manufacturers is selected in both of the dropdown menus, draws data for year 2022 and 2021 if it is and data for year 2021 when it isn't
   let option1 = byManufacturerSelect1.value;
   let option2 = byManufacturerSelect2.value;
 
@@ -460,18 +470,26 @@ drawManufacturerChart(
   byManufacturer2021[byManufacturerSelect1.value],
   byManufacturer2022[byManufacturerSelect2.value]
 );
-document.querySelector(".logo1 img").src = `./img/${byManufacturerSelect1.value}.png`
-document.querySelector(".logo2  img").src = `./img/${byManufacturerSelect2.value}.png`
+document.querySelector(
+  ".logo1 img"
+).src = `./img/${byManufacturerSelect1.value}.png`;
+document.querySelector(
+  ".logo2  img"
+).src = `./img/${byManufacturerSelect2.value}.png`;
 
 byMonthSelect.onchange = () => {
   drawModelChart(byMonthSelect.value);
 };
 byManufacturerSelect1.onchange = () => {
   optionSelector();
-  document.querySelector(".logo1 img").src = `./img/${byManufacturerSelect1.value}.png`
+  document.querySelector(
+    ".logo1 img"
+  ).src = `./img/${byManufacturerSelect1.value}.png`;
 };
 
 byManufacturerSelect2.onchange = () => {
   optionSelector();
-  document.querySelector(".logo2 img").src = `./img/${byManufacturerSelect2.value}.png`
+  document.querySelector(
+    ".logo2 img"
+  ).src = `./img/${byManufacturerSelect2.value}.png`;
 };
